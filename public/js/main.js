@@ -2,9 +2,6 @@ require.config({
     baseUrl: "../../bower_components/",
     paths: {
         app: '../js/app',
-        views: '../js/views',
-        chic: 'chic/lib/chic',
-        jquery: 'jquery/dist/jquery',
         three: 'three.js/build/three',
         StereoEffect: 'three.js/examples/js/effects/StereoEffect',
         OrbitControls: 'three.js/examples/js/controls/OrbitControls',
@@ -22,12 +19,6 @@ require.config({
         },
         DeviceOrientationControls: {
             deps: ['three']
-        },
-        underscore: {
-            exports: '_'
-        },
-        jquery: {
-            exports: '$'
         }
     }
 });

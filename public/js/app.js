@@ -1,9 +1,8 @@
 define([
-    'jquery',
     'three',
     'StereoEffect',
     'OrbitControls'],
-    function($, THREE) {
+    function(THREE) {
 
     var renderer,
         element,
@@ -27,7 +26,7 @@ define([
 
                 renderer = new THREE.WebGLRenderer();
                 element = renderer.domElement;
-                container = $('#container')[0];
+                container = document.getElementById('container');
                 container.appendChild(element);
                 effect = new THREE.StereoEffect(renderer);
 
