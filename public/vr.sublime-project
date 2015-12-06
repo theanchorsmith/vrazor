@@ -1,0 +1,15 @@
+{
+	"folders":
+	[
+		{
+			"name": "Root",
+			"follow_symlinks": true,
+			"path": "."
+		},
+		{
+			"name": "Js",
+			"follow_symlinks": true,
+			"path": "./js"
+		}
+	]
+}

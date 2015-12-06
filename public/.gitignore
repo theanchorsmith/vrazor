@@ -1,0 +1,6 @@
+razor.sublime-workspace
+.sass-cache/
+bower_components
+node_modules
+css/style.css
+js/main.min.js

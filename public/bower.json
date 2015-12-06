@@ -1,0 +1,25 @@
+{
+  "name": "VR",
+  "version": "0.0.1",
+  "authors": [
+    "Rick Ootes <rick.ootes@gmail.com>"
+  ],
+  "description": "VR Experiment",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "requirejs-plugins": "~1.0.2",
+    "chic": "~1.1.0",
+    "almond": "~0.2.9",
+    "three.js": "threejs#*",
+    "jquery": "~2.1.4"
+  }
+}
