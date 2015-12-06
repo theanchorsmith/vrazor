@@ -1,14 +1,14 @@
 define(['three', 'objects/ThreeObject'],
 function(THREE, ThreeObject) {
 
-	var TexturedQube = function (texture, scene, position, geo) {
+	var BasicQube = function (texture, scene, position, geo) {
 		ThreeObject.call(this, texture, scene, position, geo);
-		return this.render;
+		return this;
 	}
 
-	TexturedQube.prototype = Object.create(ThreeObject.prototype);
+	BasicQube.prototype = Object.create(ThreeObject.prototype);
 
-	TexturedQube.prototype.render = function (texture) {
+	BasicQube.prototype.render = function (texture) {
 
 		var geometry = new THREE.BoxGeometry(this.geo[0], this.geo[1], this.geo[2] );
 		var material = new THREE.MeshBasicMaterial({ map: texture, overdraw:false});
@@ -24,7 +24,7 @@ function(THREE, ThreeObject) {
 
 	}
 
-	return TexturedQube;
+	return BasicQube;
 
 
 });

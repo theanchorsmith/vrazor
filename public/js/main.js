@@ -3,6 +3,7 @@ require.config({
     paths: {
         app: '../js/app',
         objects: '../js/objects',
+        buildings: '../js/buildings',
         three: 'three.js/build/three',
         StereoEffect: 'three.js/examples/js/effects/StereoEffect',
         OrbitControls: 'three.js/examples/js/controls/OrbitControls',

@@ -1,9 +1,9 @@
 define([
     'three',
-    'objects/BasicQube',
+    'buildings/DefaultBuilding',
     'StereoEffect',
     'OrbitControls'],
-    function(THREE, BasicQube) {
+    function(THREE, DefaultBuilding) {
 
     var renderer,
         element,
@@ -25,11 +25,11 @@ define([
                 texture,
                 loader;
 
-                renderer = new THREE.WebGLRenderer();
-                element = renderer.domElement;
-                container = document.getElementById('container');
-                container.appendChild(element);
-                effect = new THREE.StereoEffect(renderer);
+            renderer = new THREE.WebGLRenderer();
+            element = renderer.domElement;
+            container = document.getElementById('container');
+            container.appendChild(element);
+            effect = new THREE.StereoEffect(renderer);
 
             // setup scene
             scene = new THREE.Scene();
@@ -104,9 +104,10 @@ define([
 
         addObjects: function () {
             
-            // Add basic qube
-            qube = new BasicQube('/images/textures/grid.png', scene, [100, 19, 100], [40, 40, 80]);
             
+            new DefaultBuilding(scene, -20, 20, 100);
+            new DefaultBuilding(scene, 280, 20, 100);
+        
 
         },
 
