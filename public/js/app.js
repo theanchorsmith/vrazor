@@ -1,8 +1,9 @@
 define([
     'three',
+    'objects/BasicQube',
     'StereoEffect',
     'OrbitControls'],
-    function(THREE) {
+    function(THREE, BasicQube) {
 
     var renderer,
         element,
@@ -91,10 +92,22 @@ define([
                     console.log( 'An error happened' );
                 }
             );
+    
+            // Add objects
+            this.addObjects();
 
             window.addEventListener('resize', this.resize.bind(this), false);
             window.addEventListener('deviceorientation', this.setOrientationControls.bind(this), true);
+
             setTimeout(this.resize.bind(this), 1);
+        },
+
+        addObjects: function () {
+            
+            // Add basic qube
+            qube = new BasicQube('/images/textures/grid.png', scene, [100, 19, 100], [40, 40, 80]);
+            
+
         },
 
         setOrientationControls: function(e) {

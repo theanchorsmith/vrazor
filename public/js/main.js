@@ -2,6 +2,7 @@ require.config({
     baseUrl: "../../bower_components/",
     paths: {
         app: '../js/app',
+        objects: '../js/objects',
         three: 'three.js/build/three',
         StereoEffect: 'three.js/examples/js/effects/StereoEffect',
         OrbitControls: 'three.js/examples/js/controls/OrbitControls',
