@@ -2,7 +2,8 @@ define([
     'three',
     'buildings/DefaultBuilding',
     'StereoEffect',
-    'OrbitControls'],
+    'OrbitControls',
+    'DeviceOrientationControls'],
     function(THREE, DefaultBuilding) {
 
     var renderer,
@@ -11,7 +12,8 @@ define([
         effects,
         controls,
         camera,
-        scene;
+        scene,
+        handler;
 
     var clock = new THREE.Clock();
 
@@ -97,7 +99,9 @@ define([
             this.addObjects();
 
             window.addEventListener('resize', this.resize.bind(this), false);
-            window.addEventListener('deviceorientation', this.setOrientationControls.bind(this), true);
+
+            handler = this.setOrientationControls.bind(this);
+            window.addEventListener('deviceorientation', handler, true);
 
             setTimeout(this.resize.bind(this), 1);
         },
@@ -121,7 +125,7 @@ define([
           controls.update();
 
           element.addEventListener('click', this.fullscreen.bind(this), false);
-          window.removeEventListener('deviceorientation', setOrientationControls, true);
+          window.removeEventListener('deviceorientation', handler, true);
         },
 
         resize: function() {
