@@ -18,6 +18,7 @@
   "dependencies": {
     "requirejs-plugins": "~1.0.2",
     "almond": "~0.2.9",
-    "three.js": "threejs#*"
+    "three.js": "threejs#*",
+    "jquery": "~2.1.4"
   }
 }

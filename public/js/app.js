@@ -1,9 +1,11 @@
 define([
+    'jquery',
     'three',
     'buildings/DefaultBuilding',
     'StereoEffect',
-    'OrbitControls'],
-    function(THREE, DefaultBuilding) {
+    'OrbitControls',
+    'DeviceOrientationControls'],
+    function($, THREE, DefaultBuilding) {
 
     var renderer,
         element,
@@ -16,8 +18,6 @@ define([
     var clock = new THREE.Clock();
 
     var App = {
-
-        container,
 
         init: function (){
 
@@ -35,17 +35,39 @@ define([
             scene = new THREE.Scene();
 
             // Setup camera
-            camera = new THREE.PerspectiveCamera(90, 1, 0.001, 700);
+            camera = new THREE.PerspectiveCamera(90, 1, 0.001, 700);            
             camera.position.set(0, 10, 0);
             scene.add(camera);
 
             // Setup controls
             controls = new THREE.OrbitControls(camera, element);
+            controls.rotateUp(Math.PI / 4);
             controls.target.set(
                 camera.position.x + 0.1,
                 camera.position.y,
                 camera.position.z
-                );
+            );
+
+            controls.noZoom = true;
+            controls.noPan = true;
+
+            function setOrientationControls (e) {
+
+                if (!e.alpha) {
+                  return;
+                }   
+
+                console.log('setOrientationControls', e.alpha);
+
+                controls = new THREE.DeviceOrientationControls(camera, true);
+                controls.connect();
+                controls.update();
+
+                // element.addEventListener('click', this.fullscreen.bind(this), false);
+                window.removeEventListener('deviceorientation', setOrientationControls, true);
+
+            }
+            window.addEventListener('deviceorientation', setOrientationControls, true);
 
             // Setup light
             light = new THREE.HemisphereLight(0x777777, 0x000000, 0.6);
@@ -97,31 +119,15 @@ define([
             this.addObjects();
 
             window.addEventListener('resize', this.resize.bind(this), false);
-            window.addEventListener('deviceorientation', this.setOrientationControls.bind(this), true);
 
             setTimeout(this.resize.bind(this), 1);
         },
 
-        addObjects: function () {
-            
-            
+        addObjects: function () {        
             new DefaultBuilding(scene, -20, 20, 100);
             new DefaultBuilding(scene, 280, 20, 100);
-        
-
-        },
-
-        setOrientationControls: function(e) {
-            if (!e.alpha) {
-              return;
-          }
-
-          controls = new THREE.DeviceOrientationControls(camera, true);
-          controls.connect();
-          controls.update();
-
-          element.addEventListener('click', this.fullscreen.bind(this), false);
-          window.removeEventListener('deviceorientation', setOrientationControls, true);
+            new DefaultBuilding(scene, -20, 20, -100);
+            new DefaultBuilding(scene, 280, 20, -100);
         },
 
         resize: function() {

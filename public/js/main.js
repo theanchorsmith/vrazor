@@ -5,9 +5,10 @@ require.config({
         objects: '../js/objects',
         buildings: '../js/buildings',
         three: 'three.js/build/three',
-        StereoEffect: 'three.js/examples/js/effects/StereoEffect',
-        OrbitControls: 'three.js/examples/js/controls/OrbitControls',
-        DeviceOrientationControls: 'three.js/examples/js/controls/DeviceOrientationControls',
+        StereoEffect: '../js/libs/StereoEffect',
+        OrbitControls: '../js/libs/OrbitControls',
+        DeviceOrientationControls: '../js/libs//DeviceOrientationControls',
+        jquery: 'jquery/dist/jquery'
     },
     shim: {
         three: {
